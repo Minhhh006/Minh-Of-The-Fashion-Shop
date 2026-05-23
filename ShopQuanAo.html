@@ -1,0 +1,410 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Minh Of The Fashion Shop</title>
+
+<style>
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:Arial,sans-serif;
+}
+
+body{
+    background:#f4f4f4;
+}
+
+header{
+    background:#222;
+    color:white;
+    padding:15px 50px;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    flex-wrap:wrap;
+}
+
+.logo{
+    font-size:28px;
+    font-weight:bold;
+}
+
+nav a{
+    color:white;
+    text-decoration:none;
+    margin-left:20px;
+    font-size:18px;
+}
+
+nav a:hover{
+    color:orange;
+}
+
+.cart{
+    font-size:18px;
+    font-weight:bold;
+}
+
+.banner{
+    background:url('https://images.unsplash.com/photo-1441986300917-64674bd600d8?auto=format&fit=crop&w=1500&q=80');
+    height:500px;
+    background-size:cover;
+    background-position:center;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    color:white;
+    text-align:center;
+}
+
+.banner-content{
+    background:rgba(0,0,0,0.5);
+    padding:30px;
+    border-radius:10px;
+}
+
+.banner h1{
+    font-size:50px;
+    margin-bottom:15px;
+}
+
+.banner p{
+    font-size:20px;
+}
+
+.search-box{
+    text-align:center;
+    margin:30px;
+}
+
+.search-box input{
+    width:60%;
+    max-width:500px;
+    padding:12px;
+    border:1px solid #ccc;
+    border-radius:5px;
+}
+
+.products{
+    padding:50px;
+}
+
+.products h2{
+    text-align:center;
+    margin-bottom:30px;
+    font-size:35px;
+}
+
+.product-grid{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+    gap:25px;
+}
+
+.card{
+    background:white;
+    border-radius:10px;
+    overflow:hidden;
+    box-shadow:0 0 10px rgba(0,0,0,0.15);
+    transition:0.3s;
+}
+
+.card:hover{
+    transform:translateY(-5px);
+}
+
+.card img{
+    width:100%;
+    height:300px;
+    object-fit:cover;
+}
+
+.card-content{
+    padding:15px;
+    text-align:center;
+}
+
+.price{
+    color:red;
+    font-weight:bold;
+    margin:10px 0;
+    font-size:18px;
+}
+
+button{
+    background:#222;
+    color:white;
+    border:none;
+    padding:10px 20px;
+    cursor:pointer;
+    border-radius:5px;
+}
+
+button:hover{
+    background:orange;
+}
+
+.about{
+    background:white;
+    padding:50px;
+    text-align:center;
+}
+
+.about h2{
+    margin-bottom:20px;
+}
+
+.contact{
+    padding:50px;
+}
+
+.contact h2{
+    text-align:center;
+    margin-bottom:20px;
+}
+
+form{
+    max-width:600px;
+    margin:auto;
+}
+
+input,
+textarea{
+    width:100%;
+    padding:12px;
+    margin-bottom:15px;
+    border:1px solid #ccc;
+    border-radius:5px;
+}
+
+footer{
+    background:#222;
+    color:white;
+    text-align:center;
+    padding:20px;
+}
+
+@media(max-width:768px){
+
+header{
+    flex-direction:column;
+}
+
+nav{
+    margin-top:10px;
+}
+
+.banner h1{
+    font-size:35px;
+}
+
+.search-box input{
+    width:90%;
+}
+
+}
+</style>
+</head>
+
+<body>
+
+<header>
+
+<div class="logo">Minh Of The Fashion Shop</div>
+
+<nav>
+<a href="#">Trang chủ</a>
+<a href="#sp">Sản phẩm</a>
+<a href="#gt">Giới thiệu</a>
+<a href="#lh">Liên hệ</a>
+</nav>
+
+<div class="cart">
+🛒 Giỏ hàng: <span id="cart-count">0</span>
+</div>
+
+</header>
+
+<section class="banner">
+<div class="banner-content">
+<h1>THỜI TRANG XU HƯỚNG 2026</h1>
+<p>Phong cách hiện đại - Giá cả hợp lý</p>
+</div>
+</section>
+
+<div class="search-box">
+<input
+type="text"
+id="searchInput"
+placeholder="Tìm kiếm sản phẩm..."
+onkeyup="searchProduct()">
+</div>
+
+<section class="products" id="sp">
+
+<h2>Sản Phẩm Nổi Bật</h2>
+
+<div class="product-grid">
+
+<div class="card">
+<img src="https://images.unsplash.com/photo-1521572163474-6864f9cf17ab">
+<div class="card-content">
+<h3>Áo Thun Nam</h3>
+<p class="price">250.000 VNĐ</p>
+<button onclick="buy()">Mua ngay</button>
+</div>
+</div>
+
+<div class="card">
+<img src="https://images.unsplash.com/photo-1542272604-787c3835535d">
+<div class="card-content">
+<h3>Quần Jean Nam</h3>
+<p class="price">450.000 VNĐ</p>
+<button onclick="buy()">Mua ngay</button>
+</div>
+</div>
+
+<div class="card">
+<img src="imgs/4bc970aa86a9d3ca2dc0e82b59062bd9.jpg_720x720q80.jpg">
+<div class="card-content">
+<h3>Áo Khoác Nữ</h3>
+<p class="price">650.000 VNĐ</p>
+<button onclick="buy()">Mua ngay</button>
+</div>
+</div>
+
+<div class="card">
+<img src="imgs/lMkzlFkLaeYTlCvgRvzDhD0PZuUXPo2M7BI9BE4M.jpg">
+<div class="card-content">
+<h3>Váy Thời Trang</h3>
+<p class="price">550.000 VNĐ</p>
+<button onclick="buy()">Mua ngay</button>
+</div>
+</div>
+
+<div class="card">
+<img src="imgs/11810412677-576203890.jpg">
+<div class="card-content">
+<h3>Áo Sơ Mi Nam</h3>
+<p class="price">320.000 VNĐ</p>
+<button onclick="buy()">Mua ngay</button>
+</div>
+</div>
+
+<div class="card">
+<img src="imgs/ao-hoodie-nam-icondenim-rubber-1_810a59a7972e4529a0d5f3c58d2e61d6_1024x1024.jpg">
+<div class="card-content">
+<h3>Áo Hoodie</h3>
+<p class="price">480.000 VNĐ</p>
+<button onclick="buy()">Mua ngay</button>
+</div>
+</div>
+
+<div class="card">
+<img src="imgs/nhung-mau-dam-cong-so-dep-2.jpg">
+<div class="card-content">
+<h3>Đầm Công Sở</h3>
+<p class="price">590.000 VNĐ</p>
+<button onclick="buy()">Mua ngay</button>
+</div>
+</div>
+
+<div class="card">
+<img src="imgs/vn-11134207-820l4-mjh7ivweio032c.jpg">
+<div class="card-content">
+<h3>Quần áo đá bóng đội tuyển Việt Nam</h3>
+<p class="price">250.000 VNĐ</p>
+<button onclick="buy()">Mua ngay</button>
+</div>
+</div>
+
+<div class="card">
+<img src="imgs/eb8e7ce77a1ea7b8e54a5382be3b9828__1__f247b141aebd46f4afca3c96ad97b259.jpg">
+<div class="card-content">
+<h3>Quần âu nam</h3>
+<p class="price">390.000 VNĐ</p>
+<button onclick="buy()">Mua ngay</button>
+</div>
+</div>
+
+<div class="card">
+<img src="imgs/wpo114s__1__793b515800834aa995ce383b98223909_master.jpg">
+<div class="card-content">
+<h3>Áo Polo Cao Cấp</h3>
+<p class="price">350.000 VNĐ</p>
+<button onclick="buy()">Mua ngay</button>
+</div>
+</div>
+
+</div>
+
+</section>
+
+<section class="about" id="gt">
+<h2>Giới Thiệu</h2>
+<p>
+Minh Of The Fashion là cửa hàng thời trang trực tuyến chuyên cung cấp
+quần áo nam nữ chất lượng cao với mẫu mã hiện đại, giá cả hợp lý
+và dịch vụ chăm sóc khách hàng tận tâm.
+</p>
+</section>
+
+<section class="contact" id="lh">
+
+<h2>Liên Hệ</h2>
+
+<form>
+<input type="text" placeholder="Họ và tên">
+<input type="email" placeholder="Email">
+<textarea rows="5" placeholder="Nội dung liên hệ"></textarea>
+<button type="submit">Gửi thông tin</button>
+</form>
+
+</section>
+
+<footer>
+© 2026 Minh Of The Fashion | Website Bán Quần Áo
+</footer>
+
+<script>
+
+let cart = 0;
+
+function buy(){
+    cart++;
+    document.getElementById("cart-count").innerText = cart;
+    alert("Đã thêm sản phẩm vào giỏ hàng!");
+}
+
+function searchProduct(){
+
+let input =
+document.getElementById("searchInput")
+.value.toUpperCase();
+
+let cards =
+document.querySelectorAll(".card");
+
+cards.forEach(card => {
+
+let title =
+card.querySelector("h3")
+.innerText.toUpperCase();
+
+if(title.indexOf(input) > -1){
+    card.style.display = "";
+}else{
+    card.style.display = "none";
+}
+
+});
+
+}
+
+</script>
+
+</body>
+</html>
